@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.gameContainer {
+    background-color: rgba(220, 217, 217, 0.475);
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    transition: all .3s;
+}
+
+h1 {
+    font-size: 8vmin;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-bottom: 10px;
+
+    transition: all .3s;
+}
+
+.gameMap {
+    /* width: 60vmin; */
+    /* height: 60vmin; */
+    /* background-color: rgba(223, 223, 223, 0.584); */
+    border-radius: 10px;
+    display: grid;
+    grid-template-areas:
+        "sq1 sq2 sq3"
+        "sq4 sq5 sq6"
+        "sq7 sq8 sq9";
+}
+
+.sq {
+    border: 1px solid #000;
+    width: 22vmin;
+    height: 22vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sq:first-child,:nth-child(2),:nth-child(3){
+    border-top: none;
+}
+.sq:nth-child(7),:nth-child(8),:nth-child(9){
+    border-bottom: none;
+}
+.sq:nth-child(1),:nth-child(4),:nth-child(7){
+    border-left: none;
+}
+.sq:nth-child(3),:nth-child(6),:nth-child(9){
+border-right: none;
+}
+.sq:hover {
+    background-color: rgba(255, 255, 255, 0.906);
+}
+
+/* .clicked {} */
+
+.xSvg {
+    fill: blue;
+    width: 15vmin;
+    height: 15vmin;
+    /* transform: rotate(-45deg); */
+    animation: popIn .5s forwards;
+}
+
+.oSvg {
+    fill: red;
+    width: 17vmin;
+    height: 17vmin;
+    /* transform: rotate(-45deg); */
+    animation: popIn .5s forwards,
+    rotate .3s forwards;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+    }
+
+    /* 70% { transform: scale(0.6); } */
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(55deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
